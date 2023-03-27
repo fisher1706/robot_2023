@@ -1,18 +1,22 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    ../resources/resourses.robot
+
 
 *** Variables ***
-${URL}      https://www.saucedemo.com/
 ${Browser}      Chrome
+${Url}      http://www.saucedemo.com/
+
+${StandardUser}     standard_user
+${LockedOutUser}    locked_out_user
+
+${Password}     secret_sauce
+
 
 *** Test Cases ***
 My First Test Case
-    Open Browser    ${URL}      ${Browser}
-#    Open Browser    https://www.saucedemo.com/      Firefox
-    Maximize Browser Window
-    Input Text    id:user-name      standard_user
-    Input Text    xpath://*[@id="password"]     secret_sauce
-    Click Button        name:login-button
-
-    Sleep    5
+    Open Browser And Maximize       ${Url}      ${Browser}
+    Login To Website        ${StandardUser}      ${Password}
+#    Go Back
+    Sleep    2
     Close Browser
