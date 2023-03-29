@@ -7,6 +7,8 @@ Open Browser and Maximize
     [Arguments]    ${UserUrl}       ${BrowserName}
     Open Browser    ${UserUrl}      ${BrowserName}
     Maximize Browser Window
+    Log     Startig test with ${BrowserName}
+    Log     Test URL: ${UserUrl}
 
 Login to website
     [Arguments]    ${UserName}      ${Password}
